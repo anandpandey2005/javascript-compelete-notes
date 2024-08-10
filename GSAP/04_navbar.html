@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(51, 50, 50);
+        color: aliceblue;
+        overflow-x: hidden;
+      }
+      .main {
+        height: 100%;
+        width: 100%;
+        background-image: url(https://wallpaperbat.com/img/9692769-nature-cloud-4k-ultra-hd-wallpaper.jpg);
+        background-size: cover;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 50px;
+      }
+      .nav i,
+      h1 {
+        font-size: 30px;
+        font-weight: 800;
+      }
+      .mob-nav {
+        height: 100%;
+        width: 20%;
+        position: absolute;
+        top: 0;
+        right: -20%;
+        background-color: rgba(255, 255, 255, 0.219);
+        backdrop-filter: blur(30px);
+        padding: 40px 50px;
+      }
+      .mob-nav h4 {
+        font-size: 30px;
+        color: black;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top: 10%;
+      }
+      .mob-nav i {
+        position: absolute;
+        top: 5%;
+        right: 20%;
+        background-color: aliceblue;
+        color: black;
+        border-radius: 100%;
+        padding: 10px;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="nav">
+        <h2>ANAND PANDEY</h2>
+        <h4><i class="ri-menu-3-fill"></i></h4>
+        <div class="mob-nav">
+          <h4>home</h4>
+          <h4>about us</h4>
+          <h4>contact</h4>
+          <h4>bye</h4>
+          <h3><i class="ri-close-large-line"></i></h3>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    let menu = document.querySelector(".ri-menu-3-fill");
+    let close = document.querySelector(".ri-close-large-line");
+
+    menu.addEventListener("click", () => {
+      tl = gsap.timeline();
+      tl.to(".mob-nav", {
+        right: 0,
+        duration: 0.5,
+      });
+      tl.from(".mob-nav h4", {
+        x: 150,
+        duration: 1,
+        stagger: 0.3,
+        opacity: 0,
+      });
+    });
+
+    close.addEventListener("click", () => {
+      tl.to(".mob-nav", {
+        right: "-20%",
+        duration: 0.5,
+      });
+    });
+  </script>
+</html>
